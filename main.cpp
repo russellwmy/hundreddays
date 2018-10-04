@@ -2,6 +2,7 @@
 #include "hanoi_tower.hpp"
 #include "mat_chain_mul.hpp"
 #include "next_permutation.hpp"
+#include "count_bits.hpp"
 
 using namespace std;
 
@@ -19,4 +20,8 @@ int main(int argc, const char *argv[])
     string s = "FDAE";
     bool val = next_permutation(s);
     cout << "The Result is " << s << endl;
+
+    cout << "Day - 4: Count Bits" << endl;
+    int bc = count_bits(99);
+    cout << "99 has " << bc << " bits." << endl;
 }
