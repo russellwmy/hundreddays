@@ -3,6 +3,7 @@
 #include "mat_chain_mul.hpp"
 #include "next_permutation.hpp"
 #include "count_bits.hpp"
+#include "optimized_seive.hpp"
 
 using namespace std;
 
@@ -24,4 +25,9 @@ int main(int argc, const char *argv[])
     cout << "Day 4: Count Bits" << endl;
     int bc = count_bits(99);
     cout << "99 has " << bc << " bits." << endl;
+
+    cout << "Day 5: Eratosthenes sieve" << endl;
+    int N = 1000001;
+    long numOfPrime = optimized_seive(N);
+    cout << "Number of " << N << " primes is " << numOfPrime << endl;
 }
