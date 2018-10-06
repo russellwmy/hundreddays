@@ -8,7 +8,6 @@ vector<long long> SPF(MAX_SIZE);
 long optimized_seive(int N)
 {
     isprime[0] = isprime[1] = false;
-
     for (long long int i = 2; i < N; i++)
     {
         if (isprime[i])

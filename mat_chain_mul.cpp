@@ -1,6 +1,6 @@
 #include "mat_chain_mul.hpp"
 
-int matrixChainOrder(int p[], int n)
+int matrix_chain_order(int p[], int n)
 {
     int m[n][n];
 

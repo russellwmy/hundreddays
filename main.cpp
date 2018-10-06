@@ -4,6 +4,7 @@
 #include "next_permutation.hpp"
 #include "count_bits.hpp"
 #include "optimized_seive.hpp"
+#include "postfix_notation.hpp"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int main(int argc, const char *argv[])
     cout << "Day 2: Matrix Chain Multiplication" << endl;
     int arr[] = {10, 20, 30, 40};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "Minimum number of multiplications is " << matrixChainOrder(arr, n) << endl;
+    cout << "Minimum number of multiplications is " << matrix_chain_order(arr, n) << endl;
 
     cout << "Day 3: Next Permutation" << endl;
     string s = "FDAE";
@@ -30,4 +31,10 @@ int main(int argc, const char *argv[])
     int N = 1000001;
     long numOfPrime = optimized_seive(N);
     cout << "Number of " << N << " primes is " << numOfPrime << endl;
+     
+     cout << "Day 6: Postfix notation" << endl;
+     string exp = "1 2 + 4 3 - + 10 5 / *";
+    int expResult  = evaluate_postfix(exp);
+    cout << exp << " is " << expResult << endl;
+
 }
