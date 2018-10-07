@@ -5,3 +5,4 @@
 - Day 4: Count Bits
 - Day 5: Eratosthenes sieve
 - Day 6: Postfix notation
+- Day 7: Binary Addition

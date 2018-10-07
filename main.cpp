@@ -5,6 +5,7 @@
 #include "count_bits.hpp"
 #include "optimized_seive.hpp"
 #include "postfix_notation.hpp"
+#include "binary_addition.hpp"
 
 using namespace std;
 
@@ -31,10 +32,15 @@ int main(int argc, const char *argv[])
     int N = 1000001;
     long numOfPrime = optimized_seive(N);
     cout << "Number of " << N << " primes is " << numOfPrime << endl;
-     
-     cout << "Day 6: Postfix notation" << endl;
-     string exp = "1 2 + 4 3 - + 10 5 / *";
-    int expResult  = evaluate_postfix(exp);
+
+    cout << "Day 6: Postfix notation" << endl;
+    string exp = "1 2 + 4 3 - + 10 5 / *";
+    int expResult = evaluate_postfix(exp);
     cout << exp << " is " << expResult << endl;
 
+    cout << "Day 7: Binary Addiotion" << endl;
+    string a = "1100100100100";
+    string b = "100100011000";
+    string binary_addiotion_result  = add_binary(a, b);
+    cout << a << " + " << b << " = " << binary_addiotion_result << endl;
 }
