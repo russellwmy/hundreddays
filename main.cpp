@@ -41,6 +41,6 @@ int main(int argc, const char *argv[])
     cout << "Day 7: Binary Addiotion" << endl;
     string a = "1100100100100";
     string b = "100100011000";
-    string binary_addiotion_result  = add_binary(a, b);
+    string binary_addiotion_result = add_binary(a, b);
     cout << a << " + " << b << " = " << binary_addiotion_result << endl;
 }
