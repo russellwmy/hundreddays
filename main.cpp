@@ -7,6 +7,9 @@
 #include "postfix_notation.hpp"
 #include "binary_addition.hpp"
 #include "binary_search.hpp"
+#include "monte_carlo_pi.hpp"
+#include "karatsuba_multiplication.hpp"
+
 
 using namespace std;
 
@@ -63,6 +66,7 @@ void day7()
     string binary_addiotion_result = add_binary(a, b);
     cout << a << " + " << b << " = " << binary_addiotion_result << endl;
 }
+
 void day8()
 {
     cout << "Day 8: Binary Search" << endl;
@@ -79,6 +83,22 @@ void day8()
     cout << "Element: " << x << " has result " << result << endl;
 }
 
+void day9()
+{
+    cout << "Day 9: Monte Carlo Pi" << endl;
+    long N = 1000000000;
+    double pi  =  approximation_pi(1000000000);
+    cout << "Approximation Pi is "<< pi << " with in " << N << " iterations " << endl;
+}
+
+void day10()
+{
+    cout << "Day 10: Karatsuba multiplication" << endl;
+    long long a = 994759257;
+	long long b = 928607936;
+    cout << a << " x " << b  << " = "<< multiply(a,b) << endl;
+}
+
 int main(int argc, const char *argv[])
 {
     day1();
@@ -89,4 +109,6 @@ int main(int argc, const char *argv[])
     day6();
     day7();
     day8();
+    day9();
+    day10();
 }
