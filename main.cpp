@@ -9,7 +9,7 @@
 #include "binary_search.hpp"
 #include "monte_carlo_pi.hpp"
 #include "karatsuba_multiplication.hpp"
-
+#include "mc_carthy_91.hpp"
 
 using namespace std;
 
@@ -72,7 +72,7 @@ void day8()
     cout << "Day 8: Binary Search" << endl;
     int arr[] = {2, 3, 4, 8, 10};
     int n = sizeof(arr) / sizeof(arr[0]);
-    for (int i = 0; i <= n-1; i++) 
+    for (int i = 0; i <= n - 1; i++)
         cout << arr[i] << " ";
     cout << endl;
     int x = 0;
@@ -87,16 +87,23 @@ void day9()
 {
     cout << "Day 9: Monte Carlo Pi" << endl;
     long N = 1000000000;
-    double pi  =  approximation_pi(1000000000);
-    cout << "Approximation Pi is "<< pi << " with in " << N << " iterations " << endl;
+    double pi = approximation_pi(1000000000);
+    cout << "Approximation Pi is " << pi << " with in " << N << " iterations " << endl;
 }
 
 void day10()
 {
     cout << "Day 10: Karatsuba multiplication" << endl;
     long long a = 994759257;
-	long long b = 928607936;
-    cout << a << " x " << b  << " = "<< multiply(a,b) << endl;
+    long long b = 928607936;
+    cout << a << " x " << b << " = " << multiply(a, b) << endl;
+}
+
+void day11()
+{
+    cout << "Day 11: McCarthy 91" << endl;
+    int n = 80;
+    cout << "Result of " << n << " is " << mc_carthy_91(n) << endl;
 }
 
 int main(int argc, const char *argv[])
@@ -111,4 +118,5 @@ int main(int argc, const char *argv[])
     day8();
     day9();
     day10();
+    day11();
 }
