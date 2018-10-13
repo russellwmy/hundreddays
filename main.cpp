@@ -10,6 +10,8 @@
 #include "monte_carlo_pi.hpp"
 #include "karatsuba_multiplication.hpp"
 #include "mc_carthy_91.hpp"
+#include "roots_polynomial.hpp"
+#include "extended_euclid.hpp"
 
 using namespace std;
 
@@ -106,6 +108,36 @@ void day11()
     cout << "Result of " << n << " is " << mc_carthy_91(n) << endl;
 }
 
+double f(double x)
+{
+    return (
+        x * x * x * x * x +
+        x * x * x * x +
+        x * x * x +
+        x * x +
+        x +
+        1);
+}
+
+void day12()
+{
+    cout << "Day 12: Roots of polynomial" << endl;
+    double start = -5;
+    double stop = 5;
+    cout << "Finding root of x^5 + x^4 + x^3 + x^2 + x + 1 = 0  " << endl;
+    find_roots(f, start, stop);
+}
+
+void day13()
+{
+    cout << "Day 13: Extended euclidean algorithm" << endl;
+    int x, y;
+    int a = 151, b = 100;
+    int g = gcd_extended(a, b, x, y);
+    cout << "a: " << a << " b:" << b << endl;
+    cout << g << "," << x << "," << y << endl;
+}
+
 int main(int argc, const char *argv[])
 {
     day1();
@@ -119,4 +151,6 @@ int main(int argc, const char *argv[])
     day9();
     day10();
     day11();
+    day12();
+    day13();
 }
