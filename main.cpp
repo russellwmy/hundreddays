@@ -12,6 +12,12 @@
 #include "mc_carthy_91.hpp"
 #include "roots_polynomial.hpp"
 #include "extended_euclid.hpp"
+#include "huffman_codes.hpp"
+#include "breaking_otp.hpp"
+#include "swap.hpp"
+#include "perceptron.hpp"
+#include "monopoly.hpp"
+#include "count_inversions.hpp"
 
 using namespace std;
 
@@ -138,19 +144,94 @@ void day13()
     cout << g << "," << x << "," << y << endl;
 }
 
+void day14()
+{
+    cout << "Day 14: Huffman codes" << endl;
+    char arr[] = {'a', 'b', 'c', 'd', 'e', 'f'};
+    int freq[] = {5, 9, 12, 13, 16, 45};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    huffman_codes(arr, freq, size);
+}
+
+void day15()
+{
+    cout << "Day 15: Breaking OTP" << endl;
+    // key cscmhbpgflzqaiayfeda
+    string *ciphertext = new string[5]{
+        "krqcccynwghgfuxlmvxc", // "izoqvbjhrviqfmxnhruc";
+        "mysyqocsxnjzveafubic", // "kgqmjnnmsckjvwahpxfc";
+        "bwjrhsqgbwybcwfbbwrn", //"zehfarbawlzlcofdwson";
+        "iijldmbuagzsuasssica", //"gqhzwlmovvacussuneza";
+        "bgopnndxwsjbwtastvjw", //"zomdgmorrhklwlauorgw";
+    };
+    break_otp(ciphertext);
+}
+
+void day16()
+{
+    cout << "Day 16: No-condition swap" << endl;
+    int a = 15, b = 18;
+    cout << "before swap: "
+         << "a = " << a << " b = " << b << endl;
+    swap(a, b);
+    cout << "after swap: "
+         << "a = " << a << " b = " << b << endl;
+}
+
+void day17()
+{
+    cout << "Day 17: Perceptron" << endl;
+    vector<float> X{
+        0, 1, 1,
+        1, 0, 1,
+        1, 1, 1,
+        -1, 1, 1,
+        1, -1, 1};
+
+    vector<float> y{1, 1, 1, 0, 0};
+
+    vector<float> W{0, 0, 0};
+    learn(X, y, W);
+}
+
+void day18()
+{
+    cout << "Day 18: Monoploy" << endl;
+    vector<float> p = probability(24);
+    int l = p.size();
+    for (int i = 0; i < l; i++)
+    {
+        cout << p[i] << endl;
+    }
+}
+
+void day19()
+{
+    cout << "Day 19: Counting inversions" << endl;
+    int arr[] = {23, 6, 17, 0, 18, 28, 29, 4, 15, 11};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    cout << "Number of inversions are " << merge_sort(arr, n) << endl;
+}
+
 int main(int argc, const char *argv[])
 {
-    day1();
-    day2();
-    day3();
-    day4();
-    day5();
-    day6();
-    day7();
-    day8();
-    day9();
-    day10();
-    day11();
-    day12();
-    day13();
+    // day1();
+    // day2();
+    // day3();
+    // day4();
+    // day5();
+    // day6();
+    // day7();
+    // day8();
+    // day9();
+    // day10();
+    // day11();
+    // day12();
+    // day13();
+    // day14();
+    // day15();
+    // day16();
+    // day17();
+    // day18();
+    day19();
 }
