@@ -231,7 +231,7 @@ int main(int argc, const char *argv[])
     // day14();
     // day15();
     // day16();
-    // day17();
+    day17();
     // day18();
-    day19();
+    // day19();
 }

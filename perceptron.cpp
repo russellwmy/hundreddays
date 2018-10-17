@@ -103,45 +103,72 @@ vector<float> dot(const vector<float> &m1, const vector<float> &m2, const int m1
     return output;
 }
 
-void print(const vector<float> &m, int n_rows, int n_columns)
+void log(vector<float> w, vector<float> h, vector<float> y)
 {
 
-    for (int i = 0; i != n_rows; ++i)
-    {
-        for (int j = 0; j != n_columns; ++j)
-        {
-            cout << m[i * n_columns + j] << " ";
-        }
-        cout << '\n';
-    }
-    cout << endl;
-}
-
-void print_weight(const vector<float> w)
-{
-
-    for (int i = 0; i != w.size(); ++i)
+    for (int i = 0; i < w.size(); i++)
     {
         cout << fixed;
         cout << setprecision(2);
         cout << w[i] << " ";
     }
+    float c = 0;
+    for (int i = 0; i < h.size(); i++)
+    {
+        if (h[i] == y[i])
+            c++;
+    }
+    cout << c / h.size();
     cout << endl;
 }
-
-void learn(vector<float> X, vector<float> y, vector<float> W)
+vector<float> perceptron(const vector<float> X, const vector<float> w, int nrow,  int ncolumn, int noutput)
 {
-    for (unsigned i = 0; i != 5; ++i)
+    vector<float> r = dot(X, w, nrow, ncolumn, noutput);
+    for (int i = 0; i < r.size(); i++)
     {
-        vector<float> pred = sigmoid(dot(X, W, 3, 5, 1));
-        vector<float> pred_error = y - pred;
-        vector<float> pred_delta = pred_error * sigmoid_d(pred);
-        vector<float> W_delta = dot(transpose(&X[0], 3, 5), pred_delta, 3, 5, 1);
-        W = W + W_delta;
-        print_weight(W);
-        if (i == 4)
+        r[i] = r[i] >= 0 ? 1 : 0;
+    }
+    return r;
+}
+
+vector<vector<float>> train(vector<float> X, vector<float> y, vector<float> w)
+{
+    int l = 5;
+
+    for (int i = 0; i < l; i++)
+    {
+        vector<float> x(&X[i * 3], &X[i * 3 + 3]);
+        vector<float> h = perceptron(x, w, 1, 3, 1);
+        if (h[0] != y[i])
         {
-            print(pred, 5, 1);
-        };
+            if (y[i] == 1)
+            {
+                for (int i = 0; i < w.size(); i++)
+                {
+                    w[i] = w[i] + x[i];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < w.size(); i++)
+                {
+                    w[i] = w[i] - x[i];
+                }
+            }
+        }
     };
+    vector<vector<float>> r;
+    r.push_back(w);
+    r.push_back(perceptron(X, w, 5, 3, 1));
+    return r;
+}
+void learn(vector<float> X, vector<float> y, vector<float> w)
+{
+    for (unsigned i = 0; i < 5; i++)
+    {
+
+        vector<vector<float>> r = train(X, y, w);
+        w = r[0];
+        log(w, r[1], y);
+    }
 }
