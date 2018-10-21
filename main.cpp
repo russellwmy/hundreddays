@@ -18,6 +18,8 @@
 #include "perceptron.hpp"
 #include "monopoly.hpp"
 #include "count_inversions.hpp"
+#include "linearithmic_multiplication.hpp"
+#include "kmeans.hpp"
 
 using namespace std;
 
@@ -209,8 +211,28 @@ void day19()
 {
     cout << "Day 19: Counting inversions" << endl;
     int arr[] = {23, 6, 17, 0, 18, 28, 29, 4, 15, 11};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(arr[0]);
     cout << "Number of inversions are " << merge_sort(arr, n) << endl;
+}
+
+void day20()
+{
+    cout << "Day 20: Linearithmic multiplication" << endl;
+    string x = "987324";
+    string y = "23487";
+    mult(x, y);
+}
+
+void day21()
+{
+    cout << "Day 21: K Means" << endl;
+    DataFrame data = generate_points(100);
+    DataFrame result = k_means(data, 3, 100);
+    int l = result.size();
+    for (int i = 0; i < l; i++)
+    {
+        cout << result[i].x << "," << result[i].y << endl;
+    }
 }
 
 int main(int argc, const char *argv[])
@@ -231,7 +253,9 @@ int main(int argc, const char *argv[])
     // day14();
     // day15();
     // day16();
-    day17();
+    // day17();
     // day18();
     // day19();
+    // day20();
+    day21();
 }

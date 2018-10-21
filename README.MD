@@ -6,3 +6,16 @@
 - Day 5: Eratosthenes sieve
 - Day 6: Postfix notation
 - Day 7: Binary Addition
+- Day 8: Binary Addition
+- Day 9:
+- Day 10:
+- Day 11:
+- Day 12:
+- Day 13: 
+- Day 14:
+- Day 15:
+- Day 16:
+- Day 17:
+- Day 18:
+- Day 19: 
+- Day 20:
