@@ -20,6 +20,9 @@
 #include "count_inversions.hpp"
 #include "linearithmic_multiplication.hpp"
 #include "kmeans.hpp"
+#include "determinant.hpp"
+#include "sudoku.hpp"
+#include "closest_pair_points.hpp"
 
 using namespace std;
 
@@ -55,9 +58,9 @@ void day4()
 void day5()
 {
     cout << "Day 5: Eratosthenes sieve" << endl;
-    int N = 1000001;
-    long numOfPrime = optimized_seive(N);
-    cout << "Number of " << N << " primes is " << numOfPrime << endl;
+    int n = 1000001;
+    long numOfPrime = optimized_seive(n);
+    cout << "Number of " << n << " primes is " << numOfPrime << endl;
 }
 
 void day6()
@@ -96,9 +99,9 @@ void day8()
 void day9()
 {
     cout << "Day 9: Monte Carlo Pi" << endl;
-    long N = 1000000000;
-    double pi = approximation_pi(1000000000);
-    cout << "Approximation Pi is " << pi << " with in " << N << " iterations " << endl;
+    long n = 1000000000;
+    double pi = approximation_pi(n);
+    cout << "Approximation Pi is " << pi << " with in " << n << " iterations " << endl;
 }
 
 void day10()
@@ -235,6 +238,40 @@ void day21()
     }
 }
 
+void day22()
+{
+    cout << "Day 22: Determinant" << endl;
+    int mat[3][3] = {{4, 9, 2},
+                     {3, 5, 7},
+                     {8, 1, 6}};
+    cout << "Determinant of the matrix is: " << determinant(mat, 3) << endl;
+}
+
+void day23()
+{
+    cout << "Day 23: Sudoku" << endl;
+    int grid[N][N] = {{8, 0, 0, 1, 0, 9, 0, 7, 0},
+                      {0, 9, 0, 0, 0, 0, 8, 0, 0},
+                      {5, 0, 3, 0, 4, 0, 0, 0, 0},
+                      {0, 0, 0, 0, 0, 0, 7, 9, 0},
+                      {0, 0, 7, 2, 6, 5, 3, 0, 0},
+                      {0, 3, 8, 0, 0, 0, 0, 0, 0},
+                      {0, 0, 0, 0, 9, 0, 4, 0, 1},
+                      {0, 0, 6, 0, 0, 0, 0, 2, 0},
+                      {0, 5, 0, 4, 0, 2, 0, 0, 3}};
+    if (solve_sudoku(grid) == true)
+        print_grid(grid);
+    else
+        cout << "No solution exists" << endl;
+}
+void day_24()
+{
+    cout << "Day 24: Closest pair of points" << endl;
+    day24::Point P[] = {{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}};
+    int n = sizeof(P) / sizeof(P[0]);
+    cout << "The smallest distance is " << day24::closest(P, n) << endl;
+}
+
 int main(int argc, const char *argv[])
 {
     // day1();
@@ -257,5 +294,7 @@ int main(int argc, const char *argv[])
     // day18();
     // day19();
     // day20();
-    day21();
+    // day22();
+    // day23();
+    day_24();
 }

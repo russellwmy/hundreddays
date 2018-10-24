@@ -5,10 +5,10 @@ vector<long long> prime;
 vector<long long> isprime(MAX_SIZE, true);
 vector<long long> SPF(MAX_SIZE);
 
-long optimized_seive(int N)
+long optimized_seive(int n)
 {
     isprime[0] = isprime[1] = false;
-    for (long long int i = 2; i < N; i++)
+    for (long long int i = 2; i < n; i++)
     {
         if (isprime[i])
         {
@@ -17,7 +17,7 @@ long optimized_seive(int N)
         }
         for (long long int j = 0;
              j < (int)prime.size() &&
-             i * prime[j] < N && prime[j] <= SPF[i];
+             i * prime[j] < n && prime[j] <= SPF[i];
              j++)
         {
             isprime[i * prime[j]] = false;
